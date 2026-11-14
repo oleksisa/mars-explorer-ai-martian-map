@@ -1,0 +1,85 @@
+{
+  "experiment": "MARS_EXPLORER_AI_MARTIAN_MAP_v008_Local_Release_Audit",
+  "mode": "RESEARCH_ONLY_NO_SUBMISSION",
+  "status": "PASS_LOCAL_PACKAGE_AUDIT_WITH_SCIENTIFIC_HOLDS",
+  "scope": "local source package and arithmetic; does not independently authenticate upstream data or NASA WMTS coordinates",
+  "v007_manifest_records_verified": 7,
+  "v007_manifest_passed": 7,
+  "source_output_local_comparison": {
+    "paired_astar_dijkstra_v026.csv": {
+      "source_path": "/mnt/data/test_v026_output/paired_astar_dijkstra_v026.csv",
+      "identical_local_output": true,
+      "sha256": "7bd2e02d582376ebb43b041fd1c1f272d5b42c381a84a4c73c5387d8c08cb918"
+    },
+    "scenario_summary_v026.csv": {
+      "source_path": "/mnt/data/test_v026_output/scenario_summary_v026.csv",
+      "identical_local_output": true,
+      "sha256": "4789f33998dfbd02710d452de0833b5fb75fb2ae4caa92afdb579091ba66fc3c"
+    }
+  },
+  "v026_rows": 14,
+  "v026_windows": 7,
+  "v026_margins_deg": [
+    0,
+    5
+  ],
+  "v026_summaries_recomputed_and_matched": [
+    {
+      "margin_deg": 0,
+      "windows": 7,
+      "routes_found": 7,
+      "no_route": 0,
+      "sum_passed_cells": 2268,
+      "median_route_length_m": 34.0,
+      "median_astar_expansions": 18,
+      "median_dijkstra_expansions": 222
+    },
+    {
+      "margin_deg": 5,
+      "windows": 7,
+      "routes_found": 7,
+      "no_route": 0,
+      "sum_passed_cells": 2240,
+      "median_route_length_m": 51.597979746446676,
+      "median_astar_expansions": 132,
+      "median_dijkstra_expansions": 320
+    }
+  ],
+  "astar_dijkstra_length_equal_all_rows": true,
+  "kaggle_catalog_entries": 70,
+  "kaggle_export_manifest_records": 76,
+  "source_archive_manifest_not_externally_signed": true,
+  "browser_map_loads_observed_in_user_screenshots": {
+    "MOLA": "observed earlier 12/12 (v004)",
+    "HiRISE": "observed mosaic (v005)"
+  },
+  "browser_v008_automated_test": {
+    "method": "Chromium Playwright page.set_content (navigation to file:// and localhost blocked by runtime)",
+    "tested": [
+      "UA to EN and back",
+      "all four tab switches",
+      "v026 window 2 slope margins 0 and 5, 34.00m and 51.60m",
+      "v026 expanded nodes 132 for A* with 5deg margin",
+      "zero uncaught JavaScript errors"
+    ],
+    "result": "PASS_DOM_AND_INLINE_JS_ONLY",
+    "not_tested": [
+      "NASA tile network loads in v008",
+      "WebCrypto file fetch on HTTP(S) origin",
+      "browser geodetic tile alignment",
+      "mobile browser visual ergonomics"
+    ]
+  },
+  "scientific_holds": [
+    "NO_INDEPENDENT_GEODETIC_REGISTRATION",
+    "USGS_GEOLOGY_POLYGONS_NOT_INCLUDED",
+    "V026_ROUTES_NOT_COORDINATE_REGISTERED_TO_JEZERO",
+    "NO_HUMAN_ROUTE_SAFETY_VALIDATION",
+    "ORIGINAL_PHASE_RELEASE_ZIP_PROVENANCE_HOLD_III_IV_V",
+    "FOM_RGB_MAPPING_UNCONFIRMED"
+  ],
+  "submission": "NOT_CREATED",
+  "original_kaggle_data_url": "https://www.kaggle.com/datasets/olekis/mars-explorer-ai-research-code-v001-v070",
+  "production_release_readiness": "CONDITIONAL_HUMAN_CHECK_REQUIRED",
+  "release_qualifier": "Local release integrity verified; scientific and geodetic authenticity unverified. NASA tiles successfully viewed in earlier v004-v007 user screenshots, not retested in v008 runtime."
+}

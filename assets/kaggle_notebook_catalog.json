@@ -1,0 +1,422 @@
+[
+  {
+    "version": "001",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v001_NASA_Data_Audit.ipynb",
+    "sha256": "1c7115646721573fe9ea57158f90a38a36a062603189dbc4343dbea8accaa2ae",
+    "bytes": 19153
+  },
+  {
+    "version": "002",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v002_Metadata_Source_Split.ipynb",
+    "sha256": "48372eb014453b8c42a4bac8e788565d75c5d5d66d69165a84a2faa10fb65d93",
+    "bytes": 25586
+  },
+  {
+    "version": "003",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v003_Provenance_Repair.ipynb",
+    "sha256": "4b7dcacd839ef1307991fdd3c0c3ca86b0090aaf2f89224165383231d80a5c8b",
+    "bytes": 23729
+  },
+  {
+    "version": "004",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v004_Frozen_Dataset.ipynb",
+    "sha256": "e9c24d25e5de0445c083bfdede04826aac62117e45ec4446274170690c5a71dd",
+    "bytes": 18781
+  },
+  {
+    "version": "005",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v005_Frozen_Split_CNN_Baseline_FIXED.ipynb",
+    "sha256": "293bf8df59ad80b84ae892e4f2ef4e0af8f570b303b6f8891a619acb3d057061",
+    "bytes": 24949
+  },
+  {
+    "version": "006",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v006_ResNet_EfficientNet_Comparison.ipynb",
+    "sha256": "9f3b8baef79eb611772c245484beff90d75d6f4830c2f2206957cd033024f80d",
+    "bytes": 29361
+  },
+  {
+    "version": "007",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v007_Source_Grouped_Error_Audit.ipynb",
+    "sha256": "524e16802503a71aafa8572aba80c01936430d421bfce3717e89e2ef3f2f412c",
+    "bytes": 21387
+  },
+  {
+    "version": "008",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v008_Validation_Only_Calibration.ipynb",
+    "sha256": "ce4ecb0e4f4ccd31471c8c0a1414f9d13f0c75045a2be64ae4c23ea3b6f762fa",
+    "bytes": 26502
+  },
+  {
+    "version": "009",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v009_Anomaly_Feasibility.ipynb",
+    "sha256": "b22b6eb28095512750b573fdb5f30d36ff6172cfdf23527d43f8acfc71e00024",
+    "bytes": 23645
+  },
+  {
+    "version": "010",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v010_Representation_Robustness.ipynb",
+    "sha256": "59328ec2572257da787d90a7dc6d771ada36cd263bda780dc2afec1e37222d44",
+    "bytes": 29680
+  },
+  {
+    "version": "011",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v011_Independent_Geology_Feasibility.ipynb",
+    "sha256": "e084fe474e97b52b52275c4157a67c3a7c6575bc1bbb7f1ea7871f35e4735bbf",
+    "bytes": 27188
+  },
+  {
+    "version": "012",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v012_Blind_Review_Georef_Feasibility.ipynb",
+    "sha256": "b7dbcbc2ba2132505838189fc1677cbe84e57f1679625fdd22ba00054660fe54",
+    "bytes": 23802
+  },
+  {
+    "version": "013",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v013_Source_Observation_Evidence_Audit.ipynb",
+    "sha256": "c0351776f0498da537186a181fa266d7e11437965a1f0ecfc0bfc198171292e5",
+    "bytes": 16317
+  },
+  {
+    "version": "014",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v014_Official_DTM_Ortho_Evidence.ipynb",
+    "sha256": "7d80d3a951683c98b931fd3a0f967ed0bf596345bd079658eb31bed5e6ecd7bd",
+    "bytes": 18704
+  },
+  {
+    "version": "015",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v015_Official_Raster_Coregistration.ipynb",
+    "sha256": "a5ca13a899e09b444f86a91cc6943dd889d1e3f0bae01868213a6d3fa208009e",
+    "bytes": 18829
+  },
+  {
+    "version": "016",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v016_Registration_Control_Audit.ipynb",
+    "sha256": "c1d41f0f0949da7200c153d8460045b74205b9f2eb03d5548bebad769e0e9f0b",
+    "bytes": 21879
+  },
+  {
+    "version": "017",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v017_Bounded_Map_Control_Audit.ipynb",
+    "sha256": "5852bc522e7e1c7df7fbd48eaa2126e87967e5a2d4a52733f1ff1fad21a417ef",
+    "bytes": 20452
+  },
+  {
+    "version": "018",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v018_Slope_Sensitivity_Audit.ipynb",
+    "sha256": "c52b6d64c57dcfb3c6c43aaf4b904dcdf43d24463e31840d51c766a7e4183885",
+    "bytes": 24210
+  },
+  {
+    "version": "019",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v019_Evidence_Dashboard.ipynb",
+    "sha256": "07b72c4e20cfbea462a9a0ae14f705fef48660a501e7ec0313605345bcda0a24",
+    "bytes": 23079
+  },
+  {
+    "version": "020",
+    "path": "notebooks/01_imagery_and_CNN/MARS_EXPLORER_AI_v020_Research_Release.ipynb",
+    "sha256": "1daac91470f5086232ec7a958f89060e5a4034aa73d4569ad8a287a88defce12",
+    "bytes": 23096
+  },
+  {
+    "version": "021",
+    "path": "notebooks/02_DTM_and_routing/MARS_EXPLORER_AI_v021_Independent_Control_Point_Audit.ipynb",
+    "sha256": "da7314c6072f3709dc5dbf13eb38622bf986616eb31f2e4b84c8467b0ed9d495",
+    "bytes": 20833
+  },
+  {
+    "version": "022",
+    "path": "notebooks/02_DTM_and_routing/MARS_EXPLORER_AI_v022_Synthetic_Registration_Benchmark.ipynb",
+    "sha256": "08105920394eb58d11690212ad8b441d32953af70d5892e653212e661a868a4f",
+    "bytes": 17008
+  },
+  {
+    "version": "023",
+    "path": "notebooks/02_DTM_and_routing/MARS_EXPLORER_AI_v023_External_Geospatial_Reference_Audit.ipynb",
+    "sha256": "51f18be5192646d0656d1f438d7bb36a2c16553e21f145003172489ac41d2381",
+    "bytes": 20735
+  },
+  {
+    "version": "024",
+    "path": "notebooks/02_DTM_and_routing/MARS_EXPLORER_AI_v024_Official_FOM_Spatial_Evidence.ipynb",
+    "sha256": "514668dbe9fd9ac00f8b80e28e87d0845da931dd7ac147f9c388f8af898905e3",
+    "bytes": 18318
+  },
+  {
+    "version": "025",
+    "path": "notebooks/02_DTM_and_routing/MARS_EXPLORER_AI_v025_Bounded_Rover_Traversability.ipynb",
+    "sha256": "e074927563b9cb42fc558ed7b8c4ff913ee7aebbd30dd7c7c459647211831edf",
+    "bytes": 22039
+  },
+  {
+    "version": "026",
+    "path": "notebooks/02_DTM_and_routing/MARS_EXPLORER_AI_v026_AStar_Dijkstra_Benchmark.ipynb",
+    "sha256": "c927b358e22fb99a9ed0afdb4159ece782b098c0a597dfdc454f7c968fa6a077",
+    "bytes": 23127
+  },
+  {
+    "version": "027",
+    "path": "notebooks/02_DTM_and_routing/MARS_EXPLORER_AI_v027_Risk_Weighted_Path_Planning.ipynb",
+    "sha256": "111589c2ab0f15fd6a8bc344854ad5e73bba3be1b21ac263400ec36892451493",
+    "bytes": 21741
+  },
+  {
+    "version": "028",
+    "path": "notebooks/02_DTM_and_routing/MARS_EXPLORER_AI_v028_Route_Weight_Sensitivity.ipynb",
+    "sha256": "05fecfd9ef1751b0b580a63d184e4e3598a49fcad08886ca425debccb26515bc",
+    "bytes": 22945
+  },
+  {
+    "version": "029",
+    "path": "notebooks/02_DTM_and_routing/MARS_EXPLORER_AI_v029_Statistical_Route_Robustness_Audit.ipynb",
+    "sha256": "562eb398f50c6ca08f2663b1d70f6b03cad9c249c4fafabd682d5c43425ae9f5",
+    "bytes": 25912
+  },
+  {
+    "version": "030",
+    "path": "notebooks/02_DTM_and_routing/MARS_EXPLORER_AI_v030_Research_Release.ipynb",
+    "sha256": "c823de27178d93fd2089d21c8a01dc811282affa22370dc04644466982feaacc",
+    "bytes": 21231
+  },
+  {
+    "version": "031",
+    "path": "notebooks/03_FOM_uncertainty/MARS_EXPLORER_AI_v031_Official_FOM_Discovery_Decode.ipynb",
+    "sha256": "c0003802f927f0569bff7d4b66f848acd29f2a945970ec36b3babb7892092bf9",
+    "bytes": 17132
+  },
+  {
+    "version": "032",
+    "path": "notebooks/03_FOM_uncertainty/MARS_EXPLORER_AI_v032_FOM_Semantics_Provenance_Audit.ipynb",
+    "sha256": "402c640bf205f6d45fe7fd8c9d98a4e7858f72a069627a8c5db6e1f85f2d3a42",
+    "bytes": 18862
+  },
+  {
+    "version": "033",
+    "path": "notebooks/03_FOM_uncertainty/MARS_EXPLORER_AI_v033_FOM_Legend_External_Control_Audit_FIXED.ipynb",
+    "sha256": "70fd4d9ef54e20cb7051fac45b32a60a8e3f982845fdb48aec485b3ecf4aae98",
+    "bytes": 14212
+  },
+  {
+    "version": "034",
+    "path": "notebooks/03_FOM_uncertainty/MARS_EXPLORER_AI_v034_FOM_Palette_Evidence_Audit.ipynb",
+    "sha256": "64cb4f799c73761970c8a09aafebb745df92364d239feba17d1b83b7f01ef77d",
+    "bytes": 17120
+  },
+  {
+    "version": "035",
+    "path": "notebooks/03_FOM_uncertainty/MARS_EXPLORER_AI_v035_Producer_Palette_Control_Evidence_Gate.ipynb",
+    "sha256": "c22b3fcb96894eb9c9bbb89d42e6f14284d4495b5a8b3e012a3f0c0939805331",
+    "bytes": 16435
+  },
+  {
+    "version": "036",
+    "path": "notebooks/03_FOM_uncertainty/MARS_EXPLORER_AI_v036_Bounded_Slope_Interval_Uncertainty_FIXED.ipynb",
+    "sha256": "080c5f8fe424bb2b9839fadce1aead9f6cb22e4f56c8d28f564cec59cfc9b882",
+    "bytes": 17250
+  },
+  {
+    "version": "037",
+    "path": "notebooks/03_FOM_uncertainty/MARS_EXPLORER_AI_v037_Interval_Constrained_Route_Feasibility.ipynb",
+    "sha256": "2206a15166552eb2716f8bf107091f2f0bfda8e71cb228e976c93d82ca2e3d18",
+    "bytes": 19509
+  },
+  {
+    "version": "038",
+    "path": "notebooks/03_FOM_uncertainty/MARS_EXPLORER_AI_v038_Endpoint_Protocol_Robustness.ipynb",
+    "sha256": "8bb7a79afa8c39e28547f92cedae0f118defea8af568019bb8d027d5ed8a6f16",
+    "bytes": 23516
+  },
+  {
+    "version": "039",
+    "path": "notebooks/03_FOM_uncertainty/MARS_EXPLORER_AI_v039_Clustered_Endpoint_Statistical_Audit.ipynb",
+    "sha256": "fe595b89d5ea31d80b5f86f432aba6cde8e5aa442c962c62aa0eba83fe5ebcb8",
+    "bytes": 21080
+  },
+  {
+    "version": "040",
+    "path": "notebooks/03_FOM_uncertainty/MARS_EXPLORER_AI_v040_Phase_III_Research_Release.ipynb",
+    "sha256": "c5dddbad41d4a0e5540f7c0592d5700f7201090ea349c12d02c054cfcdeb7d23",
+    "bytes": 22761
+  },
+  {
+    "version": "041",
+    "path": "notebooks/04_cartographic_evidence/MARS_EXPLORER_AI_v041_FOM_DTM_Spatial_Alignment_Audit.ipynb",
+    "sha256": "55655a1990ddca2af6305eb960e3274051af27e6a93a76599d17096c615ebdc3",
+    "bytes": 13463
+  },
+  {
+    "version": "042",
+    "path": "notebooks/04_cartographic_evidence/MARS_EXPLORER_AI_v042_Authenticated_DTM_FOM_Pair_Recovery.ipynb",
+    "sha256": "f23e33c55fcf6b916c530c6170f6091ab226d3120346bbd7463ab2a1eeb28c17",
+    "bytes": 16782
+  },
+  {
+    "version": "043",
+    "path": "notebooks/04_cartographic_evidence/MARS_EXPLORER_AI_v043_Planetary_CRS_Diagnostics.ipynb",
+    "sha256": "ea1cfe1e936af695634ffe36f0bc61f374bf1d485455473840960c7be5ae955c",
+    "bytes": 16342
+  },
+  {
+    "version": "044",
+    "path": "notebooks/04_cartographic_evidence/MARS_EXPLORER_AI_v044_Original_PDS_Label_Projection_Evidence.ipynb",
+    "sha256": "933b6a99a671d5afe9ac67a7c1a04870fd898c1fd6cf0cdc180ef7474d70c3ed",
+    "bytes": 16249
+  },
+  {
+    "version": "045",
+    "path": "notebooks/04_cartographic_evidence/MARS_EXPLORER_AI_v045_PDS_Attached_Label_Recovery.ipynb",
+    "sha256": "b6e2889d0f2beccfdbbcd5f9b7340489401782ef7523c6149839de58e0b8518b",
+    "bytes": 16465
+  },
+  {
+    "version": "046",
+    "path": "notebooks/04_cartographic_evidence/MARS_EXPLORER_AI_v046_Producer_Cartography_Evidence_Reconciliation.ipynb",
+    "sha256": "12bc722484d013f4d6424fc800101402f1922222b6e84ea7d3d2d9ea66a74e6f",
+    "bytes": 17859
+  },
+  {
+    "version": "047",
+    "path": "notebooks/04_cartographic_evidence/MARS_EXPLORER_AI_v047_Original_DTM_Label_Anchor_and_FOM_Evidence.ipynb",
+    "sha256": "de69ec3c3f88c72e8f4e69d65caa8a72a6899f2b7513bb4d4601c0a07d953c21",
+    "bytes": 18311
+  },
+  {
+    "version": "048",
+    "path": "notebooks/04_cartographic_evidence/MARS_EXPLORER_AI_v048_Exact_FOM_Label_and_Geodetic_Control_Intake.ipynb",
+    "sha256": "7a34a3071436bb50cb7a532258a9bd64f1e62703bb1a52e859a8ced2fd0b95de",
+    "bytes": 17487
+  },
+  {
+    "version": "049",
+    "path": "notebooks/04_cartographic_evidence/MARS_EXPLORER_AI_v049_Official_FOM_Extras_Archive_Evidence.ipynb",
+    "sha256": "62fbf5a48a812ae3fb16b84012fcc2c0a41409bbfe00194aea78bd32510260e1",
+    "bytes": 21440
+  },
+  {
+    "version": "050",
+    "path": "notebooks/04_cartographic_evidence/MARS_EXPLORER_AI_v050_Phase_IV_Evidence_Bound_Research_Release.ipynb",
+    "sha256": "65940e7031e01f29415574ea30fbe270b27b2c54e6bb5a8047cf2c1432a9b6db",
+    "bytes": 18917
+  },
+  {
+    "version": "051",
+    "path": "notebooks/05_multiobjective_routing/MARS_EXPLORER_AI_v051_Risk_Proxy_Multiobjective_Routing_Baseline_FIXED.ipynb",
+    "sha256": "562975236a67e10f51093cba267649efc398b35ef7e7405899aa7d6692937476",
+    "bytes": 23112
+  },
+  {
+    "version": "052",
+    "path": "notebooks/05_multiobjective_routing/MARS_EXPLORER_AI_v052_Bounded_Pareto_Cluster_Sensitivity.ipynb",
+    "sha256": "a5b912b51af23cf3b1fe14e93120559c247958ef96a3e494d8673f5bb5f831b9",
+    "bytes": 22119
+  },
+  {
+    "version": "053",
+    "path": "notebooks/05_multiobjective_routing/MARS_EXPLORER_AI_v053_Alternative_Proxy_Objective_ReRanking.ipynb",
+    "sha256": "82c425bc1a63a256f536220dad14f701becc1f6fc3a39ddcb030e53d39b2de6c",
+    "bytes": 23400
+  },
+  {
+    "version": "054",
+    "path": "notebooks/05_multiobjective_routing/MARS_EXPLORER_AI_v054_Bounded_Nonlinear_Rerouting_Pilot_FIXED.ipynb",
+    "sha256": "3edb03c636f4e991da59e865236b67dc06593765490ccfb7187b859214ed15ef",
+    "bytes": 23350
+  },
+  {
+    "version": "055",
+    "path": "notebooks/05_multiobjective_routing/MARS_EXPLORER_AI_v055_Endpoint_Solver_Budget_Sensitivity.ipynb",
+    "sha256": "a088f281611471162d54612e2c4d31400a31ec4c5d56bd054a579444151660b4",
+    "bytes": 26598
+  },
+  {
+    "version": "056",
+    "path": "notebooks/05_multiobjective_routing/MARS_EXPLORER_AI_v056_Expanded_Pareto_Portfolio_Stability.ipynb",
+    "sha256": "6706b92281f7d69f7e1184ecda798318a84e582bc7473aed0c0f55076a1e1694",
+    "bytes": 20121
+  },
+  {
+    "version": "057",
+    "path": "notebooks/05_multiobjective_routing/MARS_EXPLORER_AI_v057_Independent_Solver_Scaling_Audit.ipynb",
+    "sha256": "f683188775e61756aabfb0e8a608962840d1fd852cd5ad66601f7057b0b8c9f4",
+    "bytes": 27196
+  },
+  {
+    "version": "058",
+    "path": "notebooks/05_multiobjective_routing/MARS_EXPLORER_AI_v058_Tie_Break_Route_Stability_Audit.ipynb",
+    "sha256": "57c473b0474dae29ad6ac4d1986a74683332a013f3cdcea8c76fcbcf90ae6fd7",
+    "bytes": 21636
+  },
+  {
+    "version": "059",
+    "path": "notebooks/05_multiobjective_routing/MARS_EXPLORER_AI_v059_Phase_V_Computational_Claims_Audit.ipynb",
+    "sha256": "a1dd8b544f3597c99d5286d0dc8dfbe28574607578663f50b6c446c0950969da",
+    "bytes": 18340
+  },
+  {
+    "version": "060",
+    "path": "notebooks/05_multiobjective_routing/MARS_EXPLORER_AI_v060_Phase_V_Research_Release.ipynb",
+    "sha256": "21ecdd457e7140bc8fc2682af020766ca5cca5540a5c74e2112313a9b6139dd2",
+    "bytes": 20893
+  },
+  {
+    "version": "061",
+    "path": "notebooks/06_integration_and_release/MARS_EXPLORER_AI_v061_Five_Phase_Release_Integrity_Audit_FIXED2.ipynb",
+    "sha256": "2e94ad308a601b542de2d9e29d30e28bb0efb1dabdf18ffd702e2d130894e9fb",
+    "bytes": 16680
+  },
+  {
+    "version": "062",
+    "path": "notebooks/06_integration_and_release/MARS_EXPLORER_AI_v062_Five_Phase_Evidence_Provenance_Integration.ipynb",
+    "sha256": "1148246c7aeba953ec7b8c18fa0920f706a6a4abf718c773c598f5f1fe61bb4d",
+    "bytes": 18536
+  },
+  {
+    "version": "063",
+    "path": "notebooks/06_integration_and_release/MARS_EXPLORER_AI_v063_Evidence_Grounded_Component_Interfaces_Reproducibility.ipynb",
+    "sha256": "8325637dd3b6bbb312b593bfea90c213411401c309aee78eef233d8b963b6931",
+    "bytes": 19876
+  },
+  {
+    "version": "064",
+    "path": "notebooks/06_integration_and_release/MARS_EXPLORER_AI_v064_Data_Interface_Replay_Contract_Boundary_Stress.ipynb",
+    "sha256": "92480ad0b0054eb35329e3edcd5cf474193dde4b3ae78ab8b3b26d57890c2483",
+    "bytes": 18596
+  },
+  {
+    "version": "065",
+    "path": "notebooks/06_integration_and_release/MARS_EXPLORER_AI_v065_Provenance_Aware_Interface_Fault_Injection_Matrix.ipynb",
+    "sha256": "0881b041c66bbf602de067b451ee9f2a68a9fb0da486620c144ceb613dc90f38",
+    "bytes": 20986
+  },
+  {
+    "version": "066",
+    "path": "notebooks/06_integration_and_release/MARS_EXPLORER_AI_v066_Independent_Metadata_Regression_Failure_Propagation.ipynb",
+    "sha256": "b6bafa336247d5bbb96807966b01e9e8f78ba3aa6b2eecffbbb40019291d990c",
+    "bytes": 20534
+  },
+  {
+    "version": "067",
+    "path": "notebooks/06_integration_and_release/MARS_EXPLORER_AI_v067_Deterministic_Snapshot_Regression_Claim_Non_Escalation.ipynb",
+    "sha256": "e30ce6002940fa99810fb3d2cd355194f86b74172c0904951998a0695f2c0fad",
+    "bytes": 20790
+  },
+  {
+    "version": "068",
+    "path": "notebooks/06_integration_and_release/MARS_EXPLORER_AI_v068_Bounded_Evidence_Release_Candidate.ipynb",
+    "sha256": "8393ad2e37008837029b70f311c874e1241e1675983a6aed923e2eb1d3ec3c5e",
+    "bytes": 17212
+  },
+  {
+    "version": "069",
+    "path": "notebooks/06_integration_and_release/MARS_EXPLORER_AI_v069_Independent_Release_Candidate_Integrity_Review.ipynb",
+    "sha256": "6abc2d92353cf5ea4fc961828d4016e2b8c852db49f98bd1163928ce5c194ccb",
+    "bytes": 17336
+  },
+  {
+    "version": "070",
+    "path": "notebooks/06_integration_and_release/MARS_EXPLORER_AI_v070_Final_Bounded_Research_Synthesis_Release.ipynb",
+    "sha256": "c271e84029fc3a54d205b2dabcbc1083aa8834b71996b64160947d0acef8c5a0",
+    "bytes": 21935
+  }
+]

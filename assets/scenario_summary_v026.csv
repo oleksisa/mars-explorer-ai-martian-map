@@ -1,0 +1,3 @@
+margin_deg,windows,routes_found,no_route,sum_passed_cells,median_route_length_m,median_astar_expansions,median_dijkstra_expansions
+0,7,7,0,2268,34.0,18.0,222.0
+5,7,7,0,2240,51.597979746446676,132.0,320.0
