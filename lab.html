@@ -148,6 +148,16 @@ html[data-mars-embed="1"] #ml-portal .mx-hero{border-radius:0!important}
 #ml-portal .ml-cell.elev-0{background:#243f60}#ml-portal .ml-cell.elev-1{background:#305472}#ml-portal .ml-cell.elev-2{background:#506a79}#ml-portal .ml-cell.elev-3{background:#837b72}#ml-portal .ml-cell.elev-4{background:#ae8c71}
 #ml-portal .ml-cell.slope-blocked{box-shadow:inset 0 0 0 2px #c36c59}
 #ml-portal .ml-view[data-view="terrain"][aria-pressed="true"]{background:#a76040;border-color:#efb48b;color:#fff}
+
+/* Stage 1 research summary: additive only; original interface untouched. */
+#ml-portal .ml-stage-table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
+#ml-portal .ml-stage-table th,#ml-portal .ml-stage-table td{text-align:left;padding:10px;border-bottom:1px solid #395579;color:#e8f1ff}
+#ml-portal .ml-stage-table th{color:#f5c780}
+#ml-portal .ml-stage-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+#ml-portal .ml-stage-stats div{padding:13px;border:1px solid #3c6080;background:#18344f;border-radius:10px}
+#ml-portal .ml-stage-stats strong{font-size:26px;display:block;color:#f4c582}
+#ml-portal .ml-stage-stats span{display:block;font-size:12px;color:#c4d8ed}
+@media(max-width:650px){#ml-portal .ml-stage-stats{grid-template-columns:1fr}}
 </style>
 <main id="ml-portal" lang="uk">
 <header class="mx-hero"><div class="mx-kicker">MARS EXPLORER AI · ДОСЛІДНИЦЬКИЙ МОДУЛЬ 04</div><h1>Лабораторія маршрутів</h1><p class="mx-lead">Інтерактивне порівняння алгоритмів A* і Dijkstra. Встановлюйте початок, фініш і перешкоди, а потім досліджуйте результати обох методів на одній сітці.</p><div class="mx-tags"><span class="mx-tag">A*</span><span class="mx-tag">Dijkstra</span><span class="mx-tag">Синтетична сітка 20 × 12</span><span class="mx-tag">Дослідницька демонстрація</span></div></header>
@@ -168,6 +178,21 @@ html[data-mars-embed="1"] #ml-portal .mx-hero{border-radius:0!important}
 <div id="ml-comparison" class="ml-comparison" aria-live="polite"></div>
 <p class="ml-note">Вимірювання на цій сітці — інтерактивна демонстрація алгоритмів, а НЕ результати польової навігації, картографічної перевірки маршруту чи реальні метри на поверхні Марса. Довжина вимірюється в кроках між клітинками. У синтетичному режимі рельєф математичний. Після імпорту MOLA географічні відстані й ухили обчислюються з наданих координат та висот; вартість усе одно є безрозмірною моделлю, не витратами енергії марсохода. Завантажені дані не перевіряються за архівом NASA автоматично.</p>
 </section>
+
+<section class="mx-wrap" id="mola-stage1" aria-labelledby="mola-stage1-title">
+<h2 id="mola-stage1-title">MOLA Research Stage 1 · підсумки дослідження</h2>
+<p>Серію маршрутних дослідів на координатній сітці 20 × 12 кратера Єзеро завершено. Нижче наведено <strong>результати звітів Kaggle</strong>; цей статичний підсумок не залежить від поточного вибору старту й фінішу в інтерактивній лабораторії.</p>
+<div class="ml-stage-stats"><div><strong>56</strong><span>перевірок у трьох серіях</span></div><div><strong>0</strong><span>зафіксованих розбіжностей вартості A* / Dijkstra</span></div><div><strong>7 / 7</strong><span>успішних тестів критичних ухилів</span></div></div>
+<div style="overflow-x:auto"><table class="ml-stage-table"><thead><tr><th>Серія</th><th>Обсяг</th><th>Результат</th></tr></thead><tbody>
+<tr><td>Базове порівняння MOLA</td><td>21 = 7 пар × 3 пороги (10°, 20°, 35°)</td><td>21 COST_MATCH; медіанне скорочення відвіданих вузлів A* — 40,8%</td></tr>
+<tr><td>Чутливість до ухилу</td><td>28 = 7 пар × 4 пороги (2°, 3°, 5°, 10°)</td><td>24 COST_MATCH; 4 NO_PATH за 2°; 0 розбіжностей</td></tr>
+<tr><td>Мінімальний допустимий ухил</td><td>7 пар</td><td>7 PASS; критичні пороги 1,828756° або 2,106555°</td></tr>
+</tbody></table></div>
+<p><strong>Порогові значення:</strong> W01, W02, W05, W06 — 2,106555°; W03, W04, W07 — 1,828756°. За порогу 2° доступні 3 з 7 шляхів, за 3° — усі 7.</p>
+<p><strong>Контроль даних:</strong> SHA-256 вхідного CSV <code>4f4296eee8d6130f3d4a772f69911c022c6d8e9121534b4e225dbab8c80c1695</code>; висоти −2650…−2443 м; медіанний крок ≈438,6 м; перевірено 381 перехід, максимальний ухил 8,127°. Дані про джерело описано в метаданих Kaggle, але лабораторія не верифікує походження CSV незалежно.</p>
+<p class="ml-note"><strong>Методологічні межі:</strong> перешкоди на сітці штучні; модельна вартість не дорівнює енерговитратам марсохода. Збіг отриманих вартостей не доводить оптимальність алгоритму за всіх умов. Повну незалежну валідацію кожного рядка CSV результатів не проведено без вихідних файлів експериментів. Не застосовувати для польової навігації.</p>
+</section>
+
 <section class="mx-wrap"><h2>Результати експерименту v026</h2><p>Нижче окремо наведено раніше отримані агреговані результати дослідницьких порівнянь v026. Вони <strong>не змінюються</strong> від натискання на інтерактивну сітку вище.</p><div style="overflow-x:auto"><table class="ml-table"><thead><tr><th>Режим</th><th>Маршрути</th><th>Медіана довжини</th><th>A*: вузли</th><th>Dijkstra: вузли</th></tr></thead><tbody><tr><td>0°</td><td>7 / 7</td><td>34,00 м</td><td>18</td><td>222</td></tr><tr><td>5°</td><td>7 / 7</td><td>51,60 м</td><td>132</td><td>320</td></tr></tbody></table></div><p class="ml-note">Показники наведено за наявним зведенням v026; без завантаження первинних експериментальних даних цей модуль не перераховує та не перевіряє їх.</p></section>
 <section class="mx-wrap"><h2>Карта та джерела</h2><p>Інтерактивна лабораторія працює без зовнішніх бібліотек. Для географічного огляду кратера Єзеро використовуйте основний картографічний застосунок.</p><div class="mx-links"><a class="mx-link" href="https://oleksisa.github.io/mars-explorer-ai-martian-map/" target="_blank" rel="noopener noreferrer"><span>Відкрити карту Марса</span><em>↗</em></a><a class="mx-link" href="https://www.kaggle.com/datasets/olekis/mars-explorer-ai-research-code-v001-v070" target="_blank" rel="noopener noreferrer"><span>Дослідницький архів v001–v070</span><em>↗</em></a><a class="mx-link" href="https://github.com/oleksisa/mars-explorer-ai-martian-map" target="_blank" rel="noopener noreferrer"><span>GitHub · Mars Explorer AI</span><em>↗</em></a><a class="mx-link" href="https://oleksis.fun/index/mars_explorer_ai_doslidzhennja_marsa/0-19"><span>Повернутися до Mars Explorer AI</span><em>←</em></a></div></section>
 </main>
