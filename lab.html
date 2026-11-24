@@ -193,6 +193,29 @@ html[data-mars-embed="1"] #ml-portal .mx-hero{border-radius:0!important}
 <p class="ml-note"><strong>Методологічні межі:</strong> перешкоди на сітці штучні; модельна вартість не дорівнює енерговитратам марсохода. Збіг отриманих вартостей не доводить оптимальність алгоритму за всіх умов. Повну незалежну валідацію кожного рядка CSV результатів не проведено без вихідних файлів експериментів. Не застосовувати для польової навігації.</p>
 </section>
 
+
+<section class="mx-wrap" id="ctx-stage2" aria-labelledby="ctx-stage2-heading">
+<h2 id="ctx-stage2-heading">CTX Research Stage 2 · порівняння з MOLA</h2>
+<p>Статичний підсумок незалежного аудиту в Kaggle. Для двох цифрових моделей висот використано <strong>однакові 240 координат і ту саму сітку 20 × 12</strong>. Робочі алгоритми та параметри інтерактивного редактора вище не змінено.</p>
+<div class="ml-stage-stats"><div><strong>56</strong><span>маршрутних перевірок CTX/MOLA</span></div><div><strong>46</strong><span>успішних випадків зі збігом вартості</span></div><div><strong>0</strong><span>розбіжностей A* / Dijkstra</span></div></div>
+<div style="overflow-x:auto"><table class="ml-stage-table">
+<thead><tr><th>Допустимий ухил</th><th>MOLA · маршрути</th><th>CTX · маршрути</th></tr></thead>
+<tbody><tr><td>2°</td><td>3 / 7</td><td>1 / 7</td></tr><tr><td>3°</td><td>7 / 7</td><td>7 / 7</td></tr><tr><td>5°</td><td>7 / 7</td><td>7 / 7</td></tr><tr><td>10°</td><td>7 / 7</td><td>7 / 7</td></tr></tbody></table></div>
+<h3 style="margin:18px 0 9px">Критичні ухили семи пар точок</h3>
+<div style="overflow-x:auto"><table class="ml-stage-table"><thead><tr><th>Пара точок</th><th>MOLA</th><th>CTX</th></tr></thead><tbody>
+<tr><td>W01 · Початковий</td><td>2,106555°</td><td>2,620899°</td></tr>
+<tr><td>W02 · Північ</td><td>2,106555°</td><td>2,620899°</td></tr>
+<tr><td>W03 · Центр</td><td>1,828756°</td><td>2,160747°</td></tr>
+<tr><td>W04 · Південь</td><td>1,828756°</td><td>1,413695°</td></tr>
+<tr><td>W05 · Перехресний</td><td>2,106555°</td><td>2,620899°</td></tr>
+<tr><td>W06 · Зворотний</td><td>2,106555°</td><td>2,620899°</td></tr>
+<tr><td>W07 · Діагональ</td><td>1,828756°</td><td>2,280603°</td></tr>
+</tbody></table></div>
+<p><strong>Аудит:</strong> базові критичні ухили MOLA пройшли перевірку 7/7 PASS; після виправлення незалежного розрахунку отримано 46 COST_MATCH і 10 NO_PATH у сукупності двох моделей. За порогу 2° CTX показав менше прохідних пар (1/7 проти 3/7 за MOLA).</p>
+<p><strong>Джерело:</strong> модель USGS CTX з вихідним кроком 20 м зіставлено з MOLA на координатній сітці з медіанним кроком близько 438,56 м. Порівняння 448 сусідніх переходів дало середню абсолютну різницю ухилів 0,6673°.</p>
+<p class="ml-note"><strong>Обмеження:</strong> 20 м — крок вихідного растра CTX, не маршрутної сітки цього досліду. Перешкоди синтетичні, обидві моделі зіставляються на розрідженій сітці, вертикальні системи відліку потребують перевірки. Результати не призначені для реальної навігації марсохода. Підсумки наведено за звітами Kaggle; повні файли CSV в цій статичній сторінці не перевірялися повторно.</p>
+</section>
+
 <section class="mx-wrap"><h2>Результати експерименту v026</h2><p>Нижче окремо наведено раніше отримані агреговані результати дослідницьких порівнянь v026. Вони <strong>не змінюються</strong> від натискання на інтерактивну сітку вище.</p><div style="overflow-x:auto"><table class="ml-table"><thead><tr><th>Режим</th><th>Маршрути</th><th>Медіана довжини</th><th>A*: вузли</th><th>Dijkstra: вузли</th></tr></thead><tbody><tr><td>0°</td><td>7 / 7</td><td>34,00 м</td><td>18</td><td>222</td></tr><tr><td>5°</td><td>7 / 7</td><td>51,60 м</td><td>132</td><td>320</td></tr></tbody></table></div><p class="ml-note">Показники наведено за наявним зведенням v026; без завантаження первинних експериментальних даних цей модуль не перераховує та не перевіряє їх.</p></section>
 <section class="mx-wrap"><h2>Карта та джерела</h2><p>Інтерактивна лабораторія працює без зовнішніх бібліотек. Для географічного огляду кратера Єзеро використовуйте основний картографічний застосунок.</p><div class="mx-links"><a class="mx-link" href="https://oleksisa.github.io/mars-explorer-ai-martian-map/" target="_blank" rel="noopener noreferrer"><span>Відкрити карту Марса</span><em>↗</em></a><a class="mx-link" href="https://www.kaggle.com/datasets/olekis/mars-explorer-ai-research-code-v001-v070" target="_blank" rel="noopener noreferrer"><span>Дослідницький архів v001–v070</span><em>↗</em></a><a class="mx-link" href="https://github.com/oleksisa/mars-explorer-ai-martian-map" target="_blank" rel="noopener noreferrer"><span>GitHub · Mars Explorer AI</span><em>↗</em></a><a class="mx-link" href="https://oleksis.fun/index/mars_explorer_ai_doslidzhennja_marsa/0-19"><span>Повернутися до Mars Explorer AI</span><em>←</em></a></div></section>
 </main>
