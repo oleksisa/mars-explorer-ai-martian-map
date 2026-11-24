@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Лабораторія маршрутів — Mars Explorer AI</title><meta name="description" content="Інтерактивне порівняння алгоритмів A* і Dijkstra у проєкті Mars Explorer AI."><style>html,body{margin:0;min-height:100%;background:#101d35}body{padding:1px 12px 24px;font-family:Arial,sans-serif}#ml-portal{margin:10px auto 20px!important}</style></head><body>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Лабораторія маршрутів — Mars Explorer AI</title><meta name="description" content="Інтерактивне порівняння алгоритмів A* і Dijkstra у проєкті Mars Explorer AI."><style>html,body{margin:0;min-height:100%;background:#101d35}body{padding:1px 12px 24px;font-family:Arial,sans-serif}#ml-portal{margin:10px auto 20px!important}</style><script>if(new URLSearchParams(location.search).get('embed')==='1'){document.documentElement.setAttribute('data-mars-embed','1');}</script>
+<style>
+/* Режим вбудовування: без другої рамки, зазорів та скруглень. */
+html[data-mars-embed="1"],html[data-mars-embed="1"] body{margin:0!important;padding:0!important;min-height:0!important;background:#101d35!important;overflow-x:hidden!important}
+html[data-mars-embed="1"] #ml-portal{margin:0!important;padding:0!important;width:100%!important;max-width:none!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+html[data-mars-embed="1"] #ml-portal .mx-hero{border-radius:0!important}
+</style></head><body>
 <!-- MARS EXPLORER AI · ЛАБОРАТОРІЯ МАРШРУТІВ — вставити ЦІЛКОМ в HTML-редактор ОКРЕМОЇ сторінки uCoz. -->
 <style>
 #ml-portal{--bg:#101d35;--hero:#203b60;--panel:#1a3151;--line:#38577b;--txt:#f3f7ff;--muted:#bfd1eb;--cyan:#89e5ff;--gold:#f1c877;--rust:#efa77e;max-width:1200px;width:100%;margin:18px auto 30px;background:var(--bg);color:var(--txt);border:1px solid var(--line);border-radius:17px;overflow:hidden;box-sizing:border-box;font:16px/1.68 Arial,Helvetica,sans-serif}
@@ -129,4 +135,10 @@ root.querySelector('#ml-run').addEventListener('click',run);root.querySelector('
 })();
 </script>
 
-</body></html>
+<script>
+(function(){
+ if(document.documentElement.getAttribute('data-mars-embed')!=='1')return;
+ function announce(){var h=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);if(window.parent!==window)window.parent.postMessage({type:'mars-lab-height',height:h},'https://oleksis.fun');}
+ window.addEventListener('load',announce);window.addEventListener('resize',announce);setTimeout(announce,300);
+})();
+</script></body></html>
