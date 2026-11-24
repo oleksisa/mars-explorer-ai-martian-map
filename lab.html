@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Лабораторія маршрутів — Mars Explorer AI</title><meta name="description" content="Інтерактивне порівняння алгоритмів A* і Dijkstra у проєкті Mars Explorer AI."><style>html,body{margin:0;min-height:100%;background:#101d35}body{padding:1px 12px 24px;font-family:Arial,sans-serif}#ml-portal{margin:10px auto 20px!important}</style></head><body>
+<!-- MARS EXPLORER AI · ЛАБОРАТОРІЯ МАРШРУТІВ — вставити ЦІЛКОМ в HTML-редактор ОКРЕМОЇ сторінки uCoz. -->
+<style>
+#ml-portal{--bg:#101d35;--hero:#203b60;--panel:#1a3151;--line:#38577b;--txt:#f3f7ff;--muted:#bfd1eb;--cyan:#89e5ff;--gold:#f1c877;--rust:#efa77e;max-width:1200px;width:100%;margin:18px auto 30px;background:var(--bg);color:var(--txt);border:1px solid var(--line);border-radius:17px;overflow:hidden;box-sizing:border-box;font:16px/1.68 Arial,Helvetica,sans-serif}
+#ml-portal *,#ml-portal *:before,#ml-portal *:after{box-sizing:border-box}
+#ml-portal a{color:var(--cyan)!important;text-decoration:none!important}#ml-portal a:hover{text-decoration:underline!important;color:#fff!important}
+#ml-portal .mx-hero{padding:38px 38px 32px;background:radial-gradient(ellipse at 90% 12%,rgba(235,118,72,.29),transparent 42%),linear-gradient(125deg,#203b60,#162d4b 70%);border-bottom:1px solid var(--line)}
+#ml-portal .mx-kicker{font-size:11px;letter-spacing:1.2px;color:var(--gold);font-weight:700;margin:0 0 12px}
+#ml-portal h1{color:#fff!important;font-size:clamp(30px,4.5vw,49px)!important;line-height:1.15!important;font-weight:750!important;margin:0 0 13px!important;padding:0!important;background:none!important;text-transform:none!important}
+#ml-portal .mx-lead{font-size:17px;color:#e8effb;max-width:850px;line-height:1.75;margin:0}
+#ml-portal .mx-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:21px}
+#ml-portal .mx-tag{font-size:12px;color:#e9efff;border:1px solid #67809d;background:rgba(11,28,48,.4);border-radius:999px;padding:4px 11px}
+#ml-portal .mx-wrap{padding:29px 36px;border-top:1px solid var(--line)}
+#ml-portal h2{font-size:25px!important;line-height:1.25!important;margin:0 0 12px!important;padding:0!important;background:none!important;color:#fff!important;text-transform:none!important}
+#ml-portal h3{font-size:17px!important;margin:0 0 8px!important;color:#fff!important;background:none!important;text-transform:none!important}
+#ml-portal p{color:var(--muted);margin:0 0 13px;line-height:1.75}
+#ml-portal p:last-child{margin-bottom:0}
+#ml-portal .mx-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}
+#ml-portal .mx-stat{border:1px solid #486487;background:#122841;border-radius:11px;padding:15px 16px}
+#ml-portal .mx-stat strong{font:700 27px/1.25 Arial,Helvetica,sans-serif;color:var(--gold);display:block}
+#ml-portal .mx-stat span{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+#ml-portal .mx-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:18px}
+#ml-portal .mx-card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:19px 20px;min-width:0}
+#ml-portal .mx-num{display:block;color:var(--rust);font-size:12px;font-weight:700;letter-spacing:.7px;margin-bottom:10px}
+#ml-portal .mx-card p{font-size:14px}
+#ml-portal .mx-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 0}
+#ml-portal .mx-result{padding:18px;border-radius:10px;background:#132a46;border:1px solid #426080}
+#ml-portal .mx-result b{display:block;color:var(--cyan);font-size:20px;margin-bottom:6px}
+#ml-portal .mx-result span{display:block;font-size:13px;color:var(--muted)}
+#ml-portal .mx-note{border-left:3px solid var(--rust);background:#172a41;padding:15px 17px;color:#dae6fa;font-size:14px;line-height:1.7;margin-top:18px}
+#ml-portal .mx-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:17px}
+#ml-portal .mx-link{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #426486;border-radius:9px;background:#122a46;padding:13px 15px;font-size:14px;min-width:0}
+#ml-portal .mx-link span{overflow-wrap:anywhere}
+#ml-portal .mx-link em{font-style:normal;flex:0 0 auto;color:var(--gold)}
+#ml-portal .mx-bottom{border-top:1px solid var(--line);padding:19px 36px;background:#11243e}
+#ml-portal .mx-bottom a{font-size:13px}
+body:has(#ml-portal) #casing .wrapper{max-width:1260px!important;width:calc(100% - 28px)!important;margin:0 auto!important;box-sizing:border-box!important}
+body:has(#ml-portal) #casing #content,body:has(#ml-portal) #casing #content.wide-page{float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0 auto!important;padding:0!important;box-sizing:border-box!important}
+body:has(#ml-portal) #casing aside,body:has(#ml-portal) #casing #sidebar,body:has(#ml-portal) #casing .sidebar,body:has(#ml-portal) #casing #right,body:has(#ml-portal) #casing #rightCol,body:has(#ml-portal) #casing .right-sidebar{display:none!important}
+body:has(#ml-portal) #casing #content .module-pages{width:100%!important;max-width:100%!important}
+@media(max-width:760px){#ml-portal .mx-stats{grid-template-columns:repeat(2,minmax(0,1fr))}#ml-portal .mx-results{grid-template-columns:1fr}#ml-portal .mx-grid,#ml-portal .mx-links{grid-template-columns:1fr}}
+@media(max-width:640px){#ml-portal{margin:10px auto 20px;border-radius:12px}#ml-portal .mx-hero,#ml-portal .mx-wrap{padding:22px 18px}#ml-portal .mx-bottom{padding:18px}#ml-portal h2{font-size:22px!important}body:has(#ml-portal) #casing .wrapper{width:100%!important}}
+
+/* Реальна опублікована інтерактивна карта — вбудована з GitHub Pages */
+#ml-portal .mx-map-intro{margin-bottom:16px}
+#ml-portal .mx-map-frame{position:relative;width:100%;height:980px;min-height:640px;border:1px solid #4a7297;border-radius:12px;overflow:hidden;background:#0b172b}
+#ml-portal .mx-map-frame iframe{width:100%!important;height:100%!important;max-width:none!important;border:0!important;display:block;background:#0b172b}
+#ml-portal .mx-map-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:14px}
+#ml-portal .mx-map-button{display:inline-flex;align-items:center;gap:8px;padding:11px 17px;border:1px solid #6f9ec2;border-radius:8px;background:#234c73;color:#e9f7ff!important;font-weight:700;font-size:14px}
+#ml-portal .mx-map-caption{color:#b9cbdf;font-size:13px;margin-top:13px}
+@media(max-width:640px){#ml-portal .mx-map-frame{height:76vh;min-height:520px}}
+
+/* Сумісність із типовою двоколонковою структурою uCoz: лише сторінка Марса. */
+body:has(#ml-portal) #casing #content{width:100%!important;max-width:100%!important;float:none!important;min-width:0!important}
+body:has(#ml-portal) #casing .wrapper{max-width:1260px!important;width:calc(100% - 24px)!important;margin:0 auto!important}
+body:has(#ml-portal) #casing :is(#sidebar,.sidebar,#rightCol,#right-column,.right-sidebar,#right,.side-right,aside){display:none!important}
+#ml-portal .mx-map-frame iframe{height:100%!important;min-height:0!important}
+@media(max-width:760px){#ml-portal .mx-map-frame{height:72vh;min-height:460px}}
+
+/* v6 — легка навігація без зміни дизайну та розмірів карти */
+#ml-portal .mx-quick-nav{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:21px 0 0;padding:0}
+#ml-portal .mx-quick-nav a{display:inline-flex;align-items:center;justify-content:center;padding:9px 14px;min-height:40px;border:1px solid #507497;background:#163754;border-radius:8px;color:#d8f4ff!important;font-size:13px;font-weight:700;line-height:1.25}
+#ml-portal .mx-quick-nav a:hover,#ml-portal .mx-quick-nav a:focus-visible{background:#275374;border-color:#89e5ff;text-decoration:none!important}
+#ml-portal .mx-wrap[id]{scroll-margin-top:80px}
+#ml-portal .mx-section-tail{display:flex;justify-content:flex-end;margin:13px 0 0}
+#ml-portal .mx-section-tail a{font-size:12px!important;color:#b9deef!important}
+@media(max-width:640px){#ml-portal .mx-quick-nav{gap:7px}#ml-portal .mx-quick-nav a{flex:1 1 calc(50% - 8px);padding:9px 8px;text-align:center}}
+
+#ml-portal .ml-tools{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+#ml-portal button.ml-tool{background:#183b5c;border:1px solid #587c9e;color:#d9ebff;font:700 13px/1.3 Arial,sans-serif;border-radius:8px;padding:10px 12px;cursor:pointer;min-height:40px}
+#ml-portal button.ml-tool[aria-pressed="true"]{background:#a76040;color:#fff;border-color:#efb48b}
+#ml-portal button.ml-tool:hover{border-color:#a4e6ff}
+#ml-portal .ml-board-wrap{background:#0c1d32;border:1px solid #466486;border-radius:12px;padding:12px;max-width:950px;margin:auto}
+#ml-portal .ml-board{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:3px;touch-action:manipulation;user-select:none}
+#ml-portal .ml-cell{aspect-ratio:1;background:#254361;border:1px solid #3d6281;border-radius:3px;cursor:pointer;min-width:0;padding:0;display:block}
+#ml-portal .ml-cell.wall{background:#765c58;border-color:#a77c6d}
+#ml-portal .ml-cell.start{background:#49be92;border-color:#a5ffdd}
+#ml-portal .ml-cell.end{background:#e5ab6e;border-color:#ffe0b5}
+#ml-portal .ml-cell.a-path{background:#70ddec;border-color:#b4f8ff}
+#ml-portal .ml-cell.d-path{background:#927bc5;border-color:#c4b4eb}
+#ml-portal .ml-cell.both-path{background:#d5c880;border-color:#fff0a2}
+#ml-portal .ml-cell:focus-visible{outline:2px solid white;outline-offset:1px}
+#ml-portal .ml-legend{display:flex;flex-wrap:wrap;gap:13px;align-items:center;margin:12px 0 0;font-size:12px;color:#d9e8f8}
+#ml-portal .ml-key{display:inline-block;width:14px;height:14px;vertical-align:-2px;border:1px solid #a2bad3;border-radius:3px;margin-right:4px}
+#ml-portal .ml-output{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+#ml-portal .ml-result{padding:17px;background:#142b47;border:1px solid #426080;border-radius:11px}
+#ml-portal .ml-result strong{display:block;color:#f1c877;font-size:24px;margin:8px 0}
+#ml-portal .ml-result span{color:#d8e8fa;font-size:13px}
+#ml-portal .ml-status{padding:11px 13px;border-radius:8px;background:#192f4a;border:1px solid #3c5c79;color:#dcecff;font-size:13px;margin-top:12px}
+#ml-portal .ml-table{width:100%;border-collapse:collapse;margin-top:15px;min-width:490px;font-size:14px}
+#ml-portal .ml-table th,#ml-portal .ml-table td{padding:11px;text-align:left;color:#e8f3ff;border-bottom:1px solid #38577b}
+#ml-portal .ml-table th{color:#f1c877}
+#ml-portal .ml-note{border-left:3px solid #efa77e;background:#152d4a;padding:12px 15px;color:#d6e5f9;font-size:13px;margin-top:14px}
+#ml-portal .ml-link{display:inline-flex;background:#204b72;border:1px solid #5a86ac;border-radius:9px;padding:9px 14px;font-weight:700;font-size:14px}
+#ml-portal button.ml-tool:focus-visible{outline:2px solid #89e5ff;outline-offset:2px}
+@media(max-width:650px){#ml-portal .ml-output{grid-template-columns:1fr}#ml-portal .ml-board-wrap{padding:5px}#ml-portal .ml-board{gap:1px}#ml-portal .ml-cell{border-radius:1px}}
+</style>
+<main id="ml-portal" lang="uk">
+<header class="mx-hero"><div class="mx-kicker">MARS EXPLORER AI · ДОСЛІДНИЦЬКИЙ МОДУЛЬ 04</div><h1>Лабораторія маршрутів</h1><p class="mx-lead">Інтерактивне порівняння алгоритмів A* і Dijkstra. Встановлюйте початок, фініш і перешкоди, а потім досліджуйте результати обох методів на одній сітці.</p><div class="mx-tags"><span class="mx-tag">A*</span><span class="mx-tag">Dijkstra</span><span class="mx-tag">Синтетична сітка 20 × 12</span><span class="mx-tag">Дослідницька демонстрація</span></div></header>
+<section class="mx-wrap"><h2>Побудуйте власний маршрут</h2><p>Оберіть інструмент, натискайте на клітинки та запускайте розрахунок. Алгоритми використовують однакові перешкоди й однакову довжину кроку. Діагональні переміщення вимкнені.</p>
+<div class="ml-tools" role="group" aria-label="Інструменти редагування сітки"><button class="ml-tool" type="button" data-mode="start" aria-pressed="false">● Старт</button><button class="ml-tool" type="button" data-mode="end" aria-pressed="false">◆ Фініш</button><button class="ml-tool" type="button" data-mode="wall" aria-pressed="true">▦ Перешкода</button><button class="ml-tool" type="button" data-mode="erase" aria-pressed="false">⌫ Очистити клітинку</button><button class="ml-tool" type="button" id="ml-run">▶ Розрахувати обидва</button><button class="ml-tool" type="button" id="ml-reset">↺ Початковий приклад</button><button class="ml-tool" type="button" id="ml-clear">Прибрати перешкоди</button></div>
+<div class="ml-board-wrap"><div class="ml-board" id="ml-board" role="group" aria-label="Інтерактивна сітка маршрутів"></div><div class="ml-legend"><span><i class="ml-key" style="background:#49be92"></i>Старт</span><span><i class="ml-key" style="background:#e5ab6e"></i>Фініш</span><span><i class="ml-key" style="background:#765c58"></i>Перешкода</span><span><i class="ml-key" style="background:#70ddec"></i>A*</span><span><i class="ml-key" style="background:#927bc5"></i>Dijkstra</span><span><i class="ml-key" style="background:#d5c880"></i>Спільний шлях</span></div></div>
+<div id="ml-status" class="ml-status" role="status" aria-live="polite">Початковий приклад готовий. Натисніть «Розрахувати обидва».</div>
+<div class="ml-output"><div class="ml-result"><h3>A* · евристичний пошук</h3><strong id="ml-a-len">—</strong><span id="ml-a-nodes">Відвідані вузли: —</span></div><div class="ml-result"><h3>Dijkstra · пошук найкоротшого шляху</h3><strong id="ml-d-len">—</strong><span id="ml-d-nodes">Відвідані вузли: —</span></div></div>
+<p class="ml-note">Вимірювання на цій сітці — інтерактивна демонстрація алгоритмів, а НЕ результати польової навігації, картографічної перевірки маршруту чи реальні метри на поверхні Марса. Довжина вимірюється в кроках між клітинками.</p>
+</section>
+<section class="mx-wrap"><h2>Результати експерименту v026</h2><p>Нижче окремо наведено раніше отримані агреговані результати дослідницьких порівнянь v026. Вони <strong>не змінюються</strong> від натискання на інтерактивну сітку вище.</p><div style="overflow-x:auto"><table class="ml-table"><thead><tr><th>Режим</th><th>Маршрути</th><th>Медіана довжини</th><th>A*: вузли</th><th>Dijkstra: вузли</th></tr></thead><tbody><tr><td>0°</td><td>7 / 7</td><td>34,00 м</td><td>18</td><td>222</td></tr><tr><td>5°</td><td>7 / 7</td><td>51,60 м</td><td>132</td><td>320</td></tr></tbody></table></div><p class="ml-note">Показники наведено за наявним зведенням v026; без завантаження первинних експериментальних даних цей модуль не перераховує та не перевіряє їх.</p></section>
+<section class="mx-wrap"><h2>Карта та джерела</h2><p>Інтерактивна лабораторія працює без зовнішніх бібліотек. Для географічного огляду кратера Єзеро використовуйте основний картографічний застосунок.</p><div class="mx-links"><a class="mx-link" href="https://oleksisa.github.io/mars-explorer-ai-martian-map/" target="_blank" rel="noopener noreferrer"><span>Відкрити карту Марса</span><em>↗</em></a><a class="mx-link" href="https://www.kaggle.com/datasets/olekis/mars-explorer-ai-research-code-v001-v070" target="_blank" rel="noopener noreferrer"><span>Дослідницький архів v001–v070</span><em>↗</em></a><a class="mx-link" href="https://github.com/oleksisa/mars-explorer-ai-martian-map" target="_blank" rel="noopener noreferrer"><span>GitHub · Mars Explorer AI</span><em>↗</em></a><a class="mx-link" href="https://oleksis.fun/index/mars_explorer_ai_doslidzhennja_marsa/0-19"><span>Повернутися до Mars Explorer AI</span><em>←</em></a></div></section>
+</main>
+<script>
+(function(){
+'use strict';
+var root=document.getElementById('ml-portal');if(!root)return;
+var W=20,H=12,N=W*H,board=root.querySelector('#ml-board'),status=root.querySelector('#ml-status');
+var start=2+2*W,end=17+9*W,walls=new Set(),mode='wall',paths={a:[],d:[]};
+var cells=[];
+for(var i=0;i<N;i++){var c=document.createElement('button');c.type='button';c.className='ml-cell';c.dataset.cell=String(i);c.setAttribute('aria-label','Клітинка '+(i%W+1)+', '+(Math.floor(i/W)+1));c.addEventListener('click',function(){edit(Number(this.dataset.cell));});board.appendChild(c);cells.push(c);}
+function initial(){walls.clear();for(var y=1;y<11;y++){if(y!==4&&y!==8)walls.add(7+y*W);}for(var y=0;y<10;y++){if(y!==2&&y!==7)walls.add(13+y*W);}for(var x=8;x<13;x++)walls.add(x+6*W);start=2+2*W;end=17+9*W;walls.delete(start);walls.delete(end);paths={a:[],d:[]};render();clearResults();status.textContent='Початковий приклад готовий. Натисніть «Розрахувати обидва».';}
+function clearResults(){root.querySelector('#ml-a-len').textContent='—';root.querySelector('#ml-d-len').textContent='—';root.querySelector('#ml-a-nodes').textContent='Відвідані вузли: —';root.querySelector('#ml-d-nodes').textContent='Відвідані вузли: —';}
+function render(){var a=new Set(paths.a),d=new Set(paths.d);for(var i=0;i<N;i++){var c=cells[i],name='ml-cell';if(walls.has(i))name+=' wall';else if(i===start)name+=' start';else if(i===end)name+=' end';else if(a.has(i)&&d.has(i))name+=' both-path';else if(a.has(i))name+=' a-path';else if(d.has(i))name+=' d-path';c.className=name;c.setAttribute('aria-label','Ряд '+(Math.floor(i/W)+1)+', стовпець '+(i%W+1)+(i===start?', старт':i===end?', фініш':walls.has(i)?', перешкода':''));}}
+function edit(i){if(mode==='start'){start=i;walls.delete(i);if(start===end)end=(i+1)%N;walls.delete(end);}else if(mode==='end'){end=i;walls.delete(i);if(end===start)start=(i+N-1)%N;walls.delete(start);}else if(mode==='wall'){if(i!==start&&i!==end)walls.add(i);}else if(mode==='erase'){walls.delete(i);}paths={a:[],d:[]};render();clearResults();status.textContent='Сітку змінено. Натисніть «Розрахувати обидва».';}
+function neighbors(u){var x=u%W,y=Math.floor(u/W),res=[];if(x>0)res.push(u-1);if(x<W-1)res.push(u+1);if(y>0)res.push(u-W);if(y<H-1)res.push(u+W);return res;}
+function search(useHeuristic){var g=new Array(N).fill(Infinity),parent=new Array(N).fill(-1),closed=new Set(),open=[start];g[start]=0;var expanded=0;function heuristic(u){return useHeuristic?(Math.abs(u%W-end%W)+Math.abs(Math.floor(u/W)-Math.floor(end/W))):0;}
+while(open.length){var best=0;for(var j=1;j<open.length;j++){var v=open[j],b=open[best],fv=g[v]+heuristic(v),fb=g[b]+heuristic(b);if(fv<fb||(fv===fb&&(heuristic(v)<heuristic(b)||(heuristic(v)===heuristic(b)&&v<b))))best=j;}var u=open.splice(best,1)[0];if(closed.has(u))continue;closed.add(u);expanded++;if(u===end){var path=[];while(u!==-1){path.push(u);u=parent[u];}path.reverse();return {path:path,expanded:expanded};}var ns=neighbors(u);for(var k=0;k<ns.length;k++){var v=ns[k];if(walls.has(v)||closed.has(v))continue;var alt=g[u]+1;if(alt<g[v]){g[v]=alt;parent[v]=u;if(open.indexOf(v)<0)open.push(v);}}}return {path:[],expanded:expanded};}
+function run(){var a=search(true),d=search(false);paths={a:a.path,d:d.path};render();root.querySelector('#ml-a-len').textContent=a.path.length?(a.path.length-1)+' кроків':'Шлях не знайдено';root.querySelector('#ml-d-len').textContent=d.path.length?(d.path.length-1)+' кроків':'Шлях не знайдено';root.querySelector('#ml-a-nodes').textContent='Відвідані вузли: '+a.expanded;root.querySelector('#ml-d-nodes').textContent='Відвідані вузли: '+d.expanded;status.textContent=a.path.length?'Обидва алгоритми знайшли найкоротший шлях. Перевірте кількість відвіданих вузлів.':'Маршрут заблоковано перешкодами. Приберіть частину бар’єрів і повторіть розрахунок.';}
+root.querySelectorAll('button[data-mode]').forEach(function(btn){btn.addEventListener('click',function(){mode=btn.dataset.mode;root.querySelectorAll('button[data-mode]').forEach(function(b){b.setAttribute('aria-pressed',String(b===btn));});});});
+root.querySelector('#ml-run').addEventListener('click',run);root.querySelector('#ml-reset').addEventListener('click',initial);root.querySelector('#ml-clear').addEventListener('click',function(){walls.clear();paths={a:[],d:[]};render();clearResults();status.textContent='Перешкоди прибрано. Можна розрахувати прямий маршрут.';});initial();
+})();
+</script>
+
+</body></html>
