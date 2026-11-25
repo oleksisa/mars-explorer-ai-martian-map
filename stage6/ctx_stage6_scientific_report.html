@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mars Explorer AI — CTX Stage 6 Scientific Report</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#0d1930;color:#eaf3ff;
+ font:16px/1.65 Arial,sans-serif
+}
+main{max-width:1150px;margin:auto;padding:30px 20px}
+h1,h2{color:#fff}
+h1{font-size:clamp(25px,4vw,38px)}
+h2{margin-top:35px}
+p{color:#c9dcf3}
+.panel{
+ background:#172c49;border:1px solid #39577b;
+ border-radius:14px;padding:22px;margin:18px 0
+}
+.stats{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+ gap:15px
+}
+.stat{background:#1b3658;border-radius:12px;padding:18px}
+.stat strong{display:block;color:#ffcb86;font-size:27px}
+figure{
+ margin:20px 0;background:#172c49;padding:14px;
+ border:1px solid #39577b;border-radius:12px
+}
+figure img{width:100%;height:auto;border-radius:8px}
+.grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+ gap:18px
+}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 12px;border-bottom:1px solid #38516e;text-align:left}
+th{color:#ffcb86}
+.note{border-left:3px solid #ffbd78;padding:14px;background:#193554}
+small{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<main>
+<h1>Mars Explorer AI — CTX Research Stage 6</h1>
+<p>Дослідження чутливості модельних маршрутів до
+контрольованих синтетичних збурень висот CTX.</p>
+
+<div class="stats">
+<div class="stat"><strong>400</strong>збурень висот</div>
+<div class="stat"><strong>12 800</strong>перевірок зв'язності</div>
+<div class="stat"><strong>1 280</strong>незалежних маршрутних аудитів</div>
+<div class="stat"><strong>0</strong>розбіжностей у вибірці аудиту</div>
+</div>
+
+<section class="panel">
+<h2>Методика</h2>
+<p>П'ять фрагментів CTX 128 × 128 пікселів із кроком 20 м.
+Синтетичні збурення RMS 0,25; 0,5; 1 і 2 м.
+Порівняно незалежний і просторово корельований шум.
+Для графового моделювання використано чотирисусідні переходи
+з обмеженнями ухилу 2°, 3°, 5° та 10°.</p>
+<p>Вісім контрольних пар початкових і кінцевих точок
+задані у координатах модельної сітки.
+Це дослідницькі точки, а не місця посадки чи маршрути марсохода.</p>
+</section>
+
+<section class="panel">
+<h2>Переходи доступності маршрутів</h2>
+<div class="scroll"><table class="dataframe results">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Status</th>
+      <th>Checks</th>
+      <th>Percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BOTH_FOUND</td>
+      <td>7529</td>
+      <td>58.820</td>
+    </tr>
+    <tr>
+      <td>LOST</td>
+      <td>1831</td>
+      <td>14.305</td>
+    </tr>
+    <tr>
+      <td>GAINED</td>
+      <td>109</td>
+      <td>0.852</td>
+    </tr>
+    <tr>
+      <td>BOTH_NO_PATH</td>
+      <td>3331</td>
+      <td>26.023</td>
+    </tr>
+  </tbody>
+</table></div>
+<figure><img src="figures/01_connectivity_transitions.png"
+alt="Статуси доступності маршрутів"></figure>
+</section>
+
+<section class="panel">
+<h2>Вплив амплітуди та просторової структури збурень</h2>
+<div class="grid">
+<figure><img src="figures/02_lost_connections.png"
+alt="Втрати зв'язності за амплітудою збурень"></figure>
+<figure><img src="figures/03_slope_limit_sensitivity.png"
+alt="Втрати зв'язності за граничним ухилом"></figure>
+</div>
+<div class="scroll"><table class="dataframe results">
+  <thead>
+    <tr style="text-align: right;">
+      <th>transition</th>
+      <th>sigma_m</th>
+      <th>mode</th>
+      <th>slope_limit_deg</th>
+      <th>BOTH_FOUND</th>
+      <th>LOST</th>
+      <th>GAINED</th>
+      <th>BOTH_NO_PATH</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>0.250</td>
+      <td>INDEPENDENT</td>
+      <td>2</td>
+      <td>114</td>
+      <td>26</td>
+      <td>18</td>
+      <td>242</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.250</td>
+      <td>INDEPENDENT</td>
+      <td>3</td>
+      <td>274</td>
+      <td>16</td>
+      <td>24</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.250</td>
+      <td>INDEPENDENT</td>
+      <td>5</td>
+      <td>350</td>
+      <td>0</td>
+      <td>0</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.250</td>
+      <td>INDEPENDENT</td>
+      <td>10</td>
+      <td>386</td>
+      <td>4</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.250</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>2</td>
+      <td>138</td>
+      <td>2</td>
+      <td>6</td>
+      <td>254</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.250</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>3</td>
+      <td>286</td>
+      <td>4</td>
+      <td>12</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.250</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>5</td>
+      <td>350</td>
+      <td>0</td>
+      <td>0</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.250</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>10</td>
+      <td>389</td>
+      <td>1</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.500</td>
+      <td>INDEPENDENT</td>
+      <td>2</td>
+      <td>27</td>
+      <td>113</td>
+      <td>1</td>
+      <td>259</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.500</td>
+      <td>INDEPENDENT</td>
+      <td>3</td>
+      <td>242</td>
+      <td>48</td>
+      <td>3</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.500</td>
+      <td>INDEPENDENT</td>
+      <td>5</td>
+      <td>348</td>
+      <td>2</td>
+      <td>1</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.500</td>
+      <td>INDEPENDENT</td>
+      <td>10</td>
+      <td>380</td>
+      <td>10</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.500</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>2</td>
+      <td>125</td>
+      <td>15</td>
+      <td>17</td>
+      <td>243</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.500</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>3</td>
+      <td>285</td>
+      <td>5</td>
+      <td>2</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.500</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>5</td>
+      <td>349</td>
+      <td>1</td>
+      <td>0</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>0.500</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>10</td>
+      <td>390</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>1.000</td>
+      <td>INDEPENDENT</td>
+      <td>2</td>
+      <td>0</td>
+      <td>140</td>
+      <td>0</td>
+      <td>260</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>1.000</td>
+      <td>INDEPENDENT</td>
+      <td>3</td>
+      <td>3</td>
+      <td>287</td>
+      <td>1</td>
+      <td>109</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>1.000</td>
+      <td>INDEPENDENT</td>
+      <td>5</td>
+      <td>333</td>
+      <td>17</td>
+      <td>1</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>1.000</td>
+      <td>INDEPENDENT</td>
+      <td>10</td>
+      <td>379</td>
+      <td>11</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>1.000</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>2</td>
+      <td>85</td>
+      <td>55</td>
+      <td>15</td>
+      <td>245</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>1.000</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>3</td>
+      <td>267</td>
+      <td>23</td>
+      <td>2</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>1.000</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>5</td>
+      <td>347</td>
+      <td>3</td>
+      <td>0</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>1.000</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>10</td>
+      <td>384</td>
+      <td>6</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>2.000</td>
+      <td>INDEPENDENT</td>
+      <td>2</td>
+      <td>0</td>
+      <td>140</td>
+      <td>0</td>
+      <td>260</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>2.000</td>
+      <td>INDEPENDENT</td>
+      <td>3</td>
+      <td>0</td>
+      <td>290</td>
+      <td>0</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>2.000</td>
+      <td>INDEPENDENT</td>
+      <td>5</td>
+      <td>0</td>
+      <td>350</td>
+      <td>0</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>2.000</td>
+      <td>INDEPENDENT</td>
+      <td>10</td>
+      <td>358</td>
+      <td>32</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>2.000</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>2</td>
+      <td>7</td>
+      <td>133</td>
+      <td>1</td>
+      <td>259</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>2.000</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>3</td>
+      <td>204</td>
+      <td>86</td>
+      <td>3</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>2.000</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>5</td>
+      <td>344</td>
+      <td>6</td>
+      <td>2</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>2.000</td>
+      <td>SPATIALLY_CORRELATED</td>
+      <td>10</td>
+      <td>385</td>
+      <td>5</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table></div>
+</section>
+
+<section class="panel">
+<h2>Приклад зміни моделі рельєфу CTX</h2>
+<p>Ділянка T01, синтетичний просторово корельований
+шум з RMS 1 м. Обидві карти побудовано за однією шкалою висот.</p>
+<div class="grid">
+<figure><img src="figures/04_ctx_original_terrain.png"
+alt="Оригінальний рельєф CTX"></figure>
+<figure><img src="figures/05_ctx_perturbed_terrain.png"
+alt="Збурений рельєф CTX"></figure>
+</div>
+</section>
+
+<section class="panel">
+<h2>Незалежний аудит</h2>
+<p>Для вибірки 1 280 випадків результати A* і Dijkstra
+збіглися за доступністю та вартістю.
+Геометрія відновлених шляхів перевірена щодо
+обмежень ухилу: 1 280/1 280 PASS.</p>
+<p>Аудит охоплює вибірку, а не всі 12 800
+експериментів Stage 6.3.</p>
+</section>
+
+<section class="note">
+<strong>Обмеження застосування.</strong>
+Результати показують чутливість математичної моделі.
+Синтетичні збурення не є виміряною похибкою CTX.
+Модель не враховує камені, фізику коліс, просідання ґрунту
+та інші небезпеки. Не використовувати для реальної навігації.
+</section>
+
+<section class="panel">
+<h2>Походження даних</h2>
+<p>CTX source SHA-256:</p>
+<small>16a1aa66c3f48c1bca252795827db7b417876217aff0f5e1aff18027fab2327b</small>
+<p>Перевірені архіви Stage 6.2, Stage 6.3 та Stage 6.4
+додано до фінального пакета.</p>
+</section>
+</main>
+</body>
+</html>
